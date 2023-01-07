@@ -11,7 +11,7 @@ My basic plan is below but something takes longer than plan and something else t
 I wish luck, consistency and power for every one participating.  
 
 00-01 -> write an article for @scdevstr. // One of the biggest Turkish web3 development community.  
-01-15 -> Deep dive into solidity and complete analyze and understand the smart contract parts on LW3 tracks, Alchemy, Crypto Zombies etc. as much Solidity as possible...
+01-15 -> Deep dive into solidity and complete analyze and understand the smart contract parts on LW3 tracks, Alchemy, Crypto Zombies etc. as much Solidity as possible...  
 15-25 -> go over again html and css  
 25-40 -> go over again vanilla js, finish Alchemy js fundamentals and 5 projects.  
 40-55 -> study react, complete 3 react (easy, medium, challanging)  
