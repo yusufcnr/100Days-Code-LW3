@@ -1,4 +1,4 @@
-After learning Javascript and React I will be focusing on Solidity and smart contracts and smart contract security related stuff for 45 days total.  
+After learning Javascript and React I will be focusing on Solidity and smart contracts and smart contract security related stuff for 45 days in total.  
   
 This repo will be used for Solidity and smart contract related sessions. 
   
