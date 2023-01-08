@@ -14,7 +14,7 @@ My basic plan is below but something takes longer than plan and something else t
   
 I wish luck, consistency and power for every one who is participating.  
 
-00-01 -> write an article for @scdevstr. // One of the biggest Turkish web3 development community.  
+00-01 -> start to write an article for @scdevstr in parallel below activities. // One of the biggest Turkish web3 development community.  
 
 01-30 -> go over again html and css, go over again vanilla js, finish Alchemy js fundamentals and 5 projects.  
   
