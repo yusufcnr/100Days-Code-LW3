@@ -30,4 +30,6 @@ I wish luck, consistency and power for every one who is participating.
   
 95-99 -> Introduction to Databases.  
 
-Articles for @scdevstr at days 05, 25, 50 75, 99.  
+Articles for @scdevstr at days 05, 25, 50 75, 99.
+
+Logs for the challenge will be at my twitter.
