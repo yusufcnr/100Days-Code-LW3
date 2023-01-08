@@ -30,7 +30,7 @@ I wish luck, consistency and power for every one who is participating.
   
 You can find repository directories for different sections below. e.g javascripts, React, Solidity, Python etc.  
 
-https://github.com/yusufcnr/100Days-Code-LW3/Jacascript  
+https://github.com/yusufcnr/100Days-Code-LW3/Javascript  
 https://github.com/yusufcnr/100Days-Code-LW3/React  
 https://github.com/yusufcnr/100Days-Code-LW3/Solidity  
   
