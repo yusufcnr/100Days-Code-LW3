@@ -22,14 +22,12 @@ I wish luck, consistency and power for every one who is participating.
   
 45-60 -> Deep dive into solidity and LW3 tracks, Alchemy Ethereum Course, Crypto Zombies etc. as much Solidity as possible.  
   
-55-75 -> complete LW3 dapps possibly add feature to them or build something diferent with smart contract and frontend, grduate tracks and learn more about web3 framworks.  
+60-80 -> complete LW3 dapps possibly add feature to them or build something diferent with smart contract and frontend, grduate tracks and learn more about web3 framworks.  
   
-75-85 -> Dive into smart contract security and learn about auditing basics.  
+80-90 -> Dive into smart contract security and learn about auditing basics.  
   
-85-95 -> Python and shell scripting (this may change if I need more time for others)  
+90-99 -> Python and shell scripting (this may change if I need more time for others)  
   
-95-99 -> Introduction to Databases.  
-
 Articles for @scdevstr at days 05, 25, 50 75, 99.
 
 Logs for the challenge will be shared on my twitter https://twitter.com/yc_crypto
