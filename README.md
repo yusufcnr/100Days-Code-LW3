@@ -12,7 +12,7 @@ Near to the end I am planning to study pyhton and shell scripting in order to us
 
 My basic plan is below but something takes longer than plan and something else takes shorter. Main goal is take no day off and continue to code everyday. 
   
-I wish luck, consistency and power for every one who is participating.  
+I wish luck, consistency and power for everyone who is participating.  
   
 Join us here👇  
   
