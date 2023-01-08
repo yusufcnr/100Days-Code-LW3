@@ -32,4 +32,4 @@ I wish luck, consistency and power for every one who is participating.
 
 Articles for @scdevstr at days 05, 25, 50 75, 99.
 
-Logs for the challenge will be at my twitter.
+Logs for the challenge will be shared on my twitter https://twitter.com/yc_crypto
