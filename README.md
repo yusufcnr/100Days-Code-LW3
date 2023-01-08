@@ -13,7 +13,11 @@ Near to the end I am planning to study pyhton and shell scripting in order to us
 My basic plan is below but something takes longer than plan and something else takes shorter. Main goal is take no day off and continue to code everyday. 
   
 I wish luck, consistency and power for every one who is participating.  
-
+  
+Join us here👇  
+  
+https://discord.gg/Mun67ckPUQ  
+  
 00-01 -> start to write an article for @scdevstr in parallel below activities. // One of the biggest Turkish web3 development community.  
 
 01-30 -> go over again html and css, go over again vanilla js, finish Alchemy js fundamentals and 5 projects.  
