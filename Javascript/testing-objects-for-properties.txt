@@ -1,0 +1,14 @@
+function checkObj(obj, checkProp) {
+  // Only change code below this line
+
+const found = obj.hasOwnProperty(checkProp);
+
+if(!found) {
+  return "Not Found";
+}
+return obj[checkProp];
+
+
+  // Only change code above this line
+}
+

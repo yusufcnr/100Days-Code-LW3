@@ -1,0 +1,13 @@
+function rangeOfNumbers(startNum, endNum) {
+  if (startNum > endNum ) {
+    return [];
+  } else {
+    const numaralar = rangeOfNumbers(startNum+1, endNum);
+    numaralar.unshift(startNum);
+    return numaralar;
+
+  }
+
+};
+
+console.log(rangeOfNumbers(1, 5))

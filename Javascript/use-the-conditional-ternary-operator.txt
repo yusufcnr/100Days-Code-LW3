@@ -1,0 +1,9 @@
+function checkEqual(a, b) {
+return ((a===b ? "Equal" : "Not Equal"))
+
+}
+
+checkEqual(1, 2);
+
+console.log((3>5 ? "yes": "no"));
+console.log((444===1444 ? "equel": "not eql" ));
