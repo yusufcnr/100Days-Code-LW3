@@ -1,0 +1,15 @@
+function reverseString(str) {
+  let reverseStr = "";
+  for(let i = 0; i <= str.length; i++ ) {
+    
+    //reverseStr +=(str.charAt(str.length-i));
+
+   reverseStr = reverseStr.concat(str.charAt(str.length-i));
+  }
+  
+  return reverseStr;
+
+}
+
+console.log(reverseString("yusufcınar"));
+

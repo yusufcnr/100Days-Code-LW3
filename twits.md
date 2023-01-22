@@ -26,3 +26,10 @@ Come join us!
 #100DaysofCodeLW3
 
 
+------------12--------
+Today is my Day 12  #100daysofcode w/ 
+@LearnWeb3DAO
+-After learning basic data structures, now I'm doing basic algorithm scripting.
+-It consist of 16 exercises to solve.
+-Then I will start OOP session!
+#100DaysofCodeLW3

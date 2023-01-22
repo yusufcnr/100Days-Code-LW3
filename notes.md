@@ -63,3 +63,135 @@ function findGreaterOrEqual(a, b) {
 }
 
 ----
+DAY 6
+When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+
+The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
+
+---
+const ile tanımlanan object direkt olarak değiştirilmese de elemanların tek tek değiştirilmesiyle aslında değiştirilebiliyor.
+Bunu da engellemek için "freeze" methodu kullanıyoruz.
+Object.freeze(myObj) ile artık myObj değiştirelemez oluyor.
+
+---
+Arrow Function:
+On time used function as an argument to another function.
+we will not use it anywhere else we do not give a name to it.
+
+
+var magic = function () {
+    return new Date();
+}
+
+fonksiyonunu arrow olarak şu şekilde yazabiliriz:
+
+const magic = () => { return new Date};
+
+console.log(magic())
+
+
+---
+Array reduce function:
+I just learned about javascript array reduce method and I like it.
+
+myArray.reduce((accumulator, sum) => accumulator + sum ,0)  
+
+
+
+(...args) ile istediğimiz kadar argument verebileceğimizi belirtiyoruz.
+bu sayede arrayde kaç tane eleman varsa hepsi ile işlem yapabiliriz. reduce map filter gibi işlemleri yapmakta kolaylık sağlamakta.
+
+aynı şekilde (...) spread operator 
+
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+
+arr2 = [...arr1];  // Change this line
+
+console.log(arr2);
+
+
+----------'USE GETTERS AND SETTERS TO CONTROL ACCESS TO AN OBJECT'---
+
+
+get paramatre almaz. sadece neyi istediğini söyleyceksin...
+
+
+-----Promises --
+const myPromise = new Promise ((resolve, reject) => {
+    //Do something
+
+
+    ---REGEX---
+    ourRegex = /wortToSearch/
+    ourRegex.test(bigFile); //true or false
+    bigFile.match(ourRegex) //Uygun çıktılar
+    /wortToSearch/i //ignore case difference
+    /wortToSearch/g // all matches
+    /wortToSearch/gi //ignore case sensitivity and find all exacth matches.
+    /[a-z]/ search for letters 
+    /[0-9]/numbers 
+    /s+/g -> string includes s at least once. maybe repeated. 
+    Normalde bu aramalar en uzun sonucu gösterir. (greedy) ,
+    aramaya uyan en kısa sonuç için '?' kullanıyoruz. 
+    /t*[a-z]?i/ sonucu (titanic için) ti olur. buna lazy matching diyoruz. 
+    ? kullanmasaydık en uzun sonuç olan titani gelecekti sonuç olarak.
+    let reCriminals = /C+/; find all C's.
+    /^yusuf/ şeklinde yazarsak sadece yusuf ile başlıyorsa bulur.
+    /caboose$/ şeklinde yazarsak sadece bu ifadeyle bitiyorsa true. sonuna bakar sadece.
+    let longHand = /[A-Za-z0-9_]+/;
+    let shortHand = /\w+/; ne var ne yok ara bul.
+    büyük W ile kullanırsak tam tersi harf ve rakamlar haricini gösteriyor. 
+    uzun hali bu şekilde: /[^A-Za-z0-9_]/
+    /\d/ only numbers the same as [0-9]
+    /\D/ all non numbers
+    \s whitespace 
+    non whitepace = \S = [^ \r\t\f\n\v].
+    Regex son bir kaç derse yeniden bakmak lazım anlamakta güçlük çektim.
+    
+
+    ----
+
+    DEBUGGING
+
+    if (x=y) ifadesi bir karşılaştırma değil atama ifadesidir. Burada x, y değerine atanıyor. bunun sonucunda bu değer bir sayıya eşit olabilir ve sonuç olarak bu sayılar farklı olsa da Boolean(10) değerei true return eder. 
+
+    return Math.pow(b, e);
+
+
+    ------------
+    Arrays 
+
+    indexOf
+
+    for (let i = 0; i < arr.length; i++) {
+
+    if(arr[i].indexOf(elem) == -1) { // indexOf methods returns -1 if it does not match.
+
+      newArr.push(arr[i]);
+    } 
+  }
+
+  
+
+    --------------
+    function mutation(arr) {
+// convert element to lowecase string arrays;
+let arr0 = arr[0].toLowerCase();
+let arr1 = arr[1].toLowerCase();
+
+// Check if each char is included in first element.
+//indexOf method takes and argument and returns the index of this element. arr.indexOf("A") returns the index of A in arr.
+
+for(let i=0; i<arr1.length; i++) {
+  if (arr0.indexOf(arr1[i]) < 0)  return false;
+
+} return true;
+ 
+}
+
+console.log(mutation(["helylo", "hey"]));
+
+
+
+

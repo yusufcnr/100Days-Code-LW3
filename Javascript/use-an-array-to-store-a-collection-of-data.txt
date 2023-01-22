@@ -1,0 +1,1 @@
+let yourArray=["yusuf", 1111, true, undefined, {name:"yusuf", surname:"cinar", arr:[1,8,"yyy"] }]; // Change this line

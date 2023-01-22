@@ -1,0 +1,18 @@
+function getIndexToIns(arr, num) {
+
+  //1-  Sort the adress ascending
+  arr =  arr.sort(function (a,b) {return a-b});
+  console.log("sorted: " + arr)
+  //2-find the smallest element in array, if higher than the num do not nothing . 
+for (let i = 0; i<arr.length; i++) {
+   if(arr[i] >= num) { return i; } // return the index which value of it is >= num,
+   
+ } return arr.length; // returns the length of arr if no value if greater than the num.
+  
+  //4-insert the num at that index w/o removing any element(array.splice(num, 0(how many elem to remove), index))
+
+  
+}
+
+console.log(getIndexToIns([200,4000, 60], 170));
+console.log(getIndexToIns([10, 20, 30, 40, 50], 30));

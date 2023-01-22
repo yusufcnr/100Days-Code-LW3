@@ -1,0 +1,19 @@
+const HIGH_TEMPERATURES = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80,
+  test: 100,
+  hey:10
+};
+
+// Only change code below this line
+const {today, tomorrow} = HIGH_TEMPERATURES;
+
+
+// Only change code above this line
+
+console.log(today);
+
+// Kısaca bir objecti parçalarına ayırarak içinden değerleri çekebiliriz.
+//object içindeki değerlerden baştan itibaren hangilerini kullancaksak onları yazarız.
+//en sonunda kullanmayacaklarımıza da ...rest yazarız. ...rest en sonra olması gerekiyor yoksa hata veriyor. 

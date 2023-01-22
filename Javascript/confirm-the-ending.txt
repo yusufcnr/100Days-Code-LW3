@@ -1,0 +1,11 @@
+function confirmEnding(name, target) {
+if(name.substring((name.length-target.length)) === target)
+{
+return true //"yes " + name +" ends with " + target;
+}
+return false //"sorry " + name + " does not end with " +target;
+
+}
+
+
+console.log(confirmEnding("Bastian", "n"));

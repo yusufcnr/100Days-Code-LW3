@@ -1,0 +1,13 @@
+function titleCase(str) {
+  let sonuc = "";
+  let words = str.split(" ")
+  for (let i = 0; i < words.length; i++) {
+  let wordsI =  words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase() + " ";
+  sonuc += wordsI;
+  }
+
+  return sonuc.substring(0, sonuc.length-1)
+}
+
+console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
+console.log(titleCase("sHoRt AnD sToUt"));

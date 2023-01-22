@@ -1,0 +1,15 @@
+/*var myConcat = function(arr1, arr2) {
+  return arr1.concat(arr2);
+};
+
+console.log(myConcat([1, 2], [3, 4, 5]));
+*/ 
+/* Öncelikle const ve ismi:
+sonra = 
+sonra (varsa args)
+sonra => 
+en son { hangi degerler gelecekse return} */
+
+const myConcat = (arr1, arr2) => {return arr1.concat(arr2)};
+
+console.log(myConcat([1, 2], [3, 4, 5]));

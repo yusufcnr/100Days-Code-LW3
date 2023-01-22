@@ -1,0 +1,20 @@
+function frankenSplice(arr1, arr2, num) {
+/*
+1-copy arr1[i] to arr2[arr2.lenth+n]
+2-return arrRes
+3-
+*/ 
+  let arrRes = arr2.slice();
+  for (let i = 0; i < arr1.length; i++ ) { // arr1'in her elemanı
+    arrRes.splice(num, 0, arr1[i]) 
+    
+    // arrRes'in num. elemanını arr1[i] yap.
+    //sonrasında bir sonrakine geç.
+    num++; // burası kritik. bunu yapmazsan üzerine yazıyor gibi bir durum var.
+      }
+  return arrRes;
+
+}
+
+console.log(frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2));
+console.log(frankenSplice([1,88, 2], ["a", "b",77], 1));

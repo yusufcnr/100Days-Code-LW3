@@ -1,0 +1,12 @@
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1$/; // Change this line
+let result = repeatNum.match(reRegex);
+console.log(result);
+
+
+let repeatStr = "row row row your boat";
+let repeatRegex = /(\w+)/;
+repeatRegex.test(repeatStr); // Returns true
+let result1 = repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
+
+//Bu derslere yeniden bakmak lazım. 

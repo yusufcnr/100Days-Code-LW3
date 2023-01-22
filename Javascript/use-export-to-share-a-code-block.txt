@@ -1,0 +1,13 @@
+export const uppercaseString = (string) => {
+  return string.toUpperCase();
+}
+
+const lowercaseString = (string) => {
+  return string.toLowerCase()
+}
+
+const PI = 3.14;
+
+export {lowercaseString};
+
+export {PI};

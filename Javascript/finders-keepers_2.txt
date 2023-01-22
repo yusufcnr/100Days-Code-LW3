@@ -1,0 +1,13 @@
+function findElement(arr, func) {
+  for (let i = 0; i< arr.length; i++) {
+    if (func(arr[i]) === true) {
+      return arr[i];
+      break;
+    } 
+  } 
+  //let num = 0;
+  return undefined;
+}
+
+let res = findElement([1,51,200,4,8,9,1,51,200,4,8,91,51,200,4,8,91,51,200,4,8,9], num => num / 5 == 40);
+console.log(res);

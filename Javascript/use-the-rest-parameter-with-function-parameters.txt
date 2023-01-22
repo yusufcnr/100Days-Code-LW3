@@ -1,0 +1,11 @@
+const sum = (...args) => {
+  return args.reduce((a, b) => a + b, 0);
+}
+
+console.log(sum(1,2,3,9))
+
+/*
+I just learned about javascript array reduce method and I like it.
+
+myArray.reduce((accumulator, sum) => accumulator + sum ,0)  
+*/
