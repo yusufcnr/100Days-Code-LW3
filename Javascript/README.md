@@ -7,3 +7,5 @@ I will be doing this course for javascript: https://www.freecodecamp.org/learn/j
 I will document my progres on my twitter page: https://twitter.com/yc_crypto  
   
 Join us here: https://discord.gg/Mun67ckPUQ  
+
+_2 files are alternative solutions.
