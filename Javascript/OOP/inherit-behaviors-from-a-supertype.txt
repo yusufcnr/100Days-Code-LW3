@@ -1,0 +1,32 @@
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Human() {
+  Human.prototype = {
+    constructor: Human,
+    eat:true,
+    talk:true,
+    describe: function() { 
+      console.log("I am human $ {this.name}."); },
+  }
+}
+ 
+// Only change code below this line
+
+let duck = Object.create(Animal.prototype); // Change this line
+let beagle = Object.create(Animal.prototype); // Change this line
+
+let ducky = new Animal();
+
+
+let yusuf = Object.create(Human.prototype);
+
+
+
+console.log(yusuf instanceof Object)

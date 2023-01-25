@@ -1,0 +1,22 @@
+function Animal(name) { }
+Animal.prototype = {
+
+  constructor: Animal,
+  desc: function () {
+    console.log("hey this is ${this.name}");
+  },
+  eat: function() {
+    console.log("nom nom nom");
+  
+
+  }
+};
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+let beagle = new Dog("begale");
+let coni  = new Dog("Coni");
+coni.eat();
+coni.desc();

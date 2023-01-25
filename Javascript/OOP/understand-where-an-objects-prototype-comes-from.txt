@@ -1,0 +1,23 @@
+function Dog(name) {
+  this.name = name;
+}
+
+let beagle = new Dog("Snoopy");
+
+// Only change code below this line
+console.log(Dog.prototype.isPrototypeOf(beagle));
+
+let coni = new Dog();
+console.log(Dog.prototype.isPrototypeOf(coni));
+
+coni.prototype = {
+  numLegs:4,
+  hav: function () {
+    console.log(this.name + "hav hav ded");
+  },
+  tanis: function () {
+    console.log("merhaba bu " + this.name);
+  }
+};
+
+console.log(coni.constructor)

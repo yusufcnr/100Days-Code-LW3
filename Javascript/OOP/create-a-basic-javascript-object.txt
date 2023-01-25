@@ -1,0 +1,9 @@
+let dog = { 
+  name : "hav hav",
+  numLegs:4,
+  family: "cats",
+  owner: "yusuf",
+  wings:false,
+
+
+};
