@@ -1,16 +1,18 @@
-/*jshint esversion: 6*/
+/*jshint esversion:6*/
 
-const prepareBlackTea = () => "Black Tea";
-const prepareGreenTea = () => "Green Tea"; 
+const siyahCayDemle = () => "1 bardak siyah cay";
+const beyazCayDemle = () => "1 bardak beyaz cay";
 
+const caylaaarrr  = [];
 
-const teaCups = [];
-const getTea = (prepareTea, numofCups) => {
-    for (let cup=1; cup<=numofCups; cup++) {
-        oneCup = prepareTea();
-        teaCups.push(oneCup);
-    } 
-return teaCups;
+const cayVerBakalim = (cayDemle, kacBardak) => {
+
+    for (let bardak = 1; bardak <= kacBardak; bardak +=1) {
+        birBardakCay = cayDemle();
+        caylaaarrr.push(birBardakCay);
+    }
+
+    return caylaaarrr;
 
 };
-console.log(getTea(prepareBlackTea, 10));
+console.log(cayVerBakalim(siyahCayDemle, 10));
