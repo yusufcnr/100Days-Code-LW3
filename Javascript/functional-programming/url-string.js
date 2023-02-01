@@ -12,4 +12,4 @@ function urlFromString(title) {
 
 }
 
-console.log(urlFromString(" hey yoooo i go to schooolll  "));
+console.log(urlFromString(" Hey yooo learning JS is cool  "));
