@@ -1,0 +1,45 @@
+//jshint esversion:6
+
+let listOfPrimes = [];
+let sum = 0;
+
+function checkPrimes(num) {      
+
+    if(num < 2) {
+        return false;
+        }
+
+    if (num == 2) {
+        return true;
+    }
+    var q = Math.floor(Math.sqrt(num));
+    for (let i = 2; i <= q; i++) {
+
+    if(num % i == 0) {
+    return false;
+    } 
+        
+    } 
+    //console.log(num + " is prime");
+    return true;
+}
+
+
+function sumPrimes (num) {
+
+    for(let j = 2; j <= num; j += 1) {
+        if(checkPrimes(j)) {
+            listOfPrimes.push(j);
+            sum +=j;
+            //console.log("j: " + j);
+        
+        }
+    }
+    console.log(listOfPrimes);
+
+    return sum;
+}
+
+console.log(sumPrimes(977));
+
+
