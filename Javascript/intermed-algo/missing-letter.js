@@ -1,27 +1,19 @@
 //jshint esversion:6
 
 function fearNotLetter(str) {
-    let letters = "abcdefghijklmnopqrstuvwxyz";
 
-    let startingIndex = letters.search(str.charAt(0));
-    console.log("starting Index : " + startingIndex);
-
-    let lastIndex = startingIndex + str.length-1;
-    let missingLetter;
-
-    console.log("Last index :" + lastIndex);
-
-    for (let i = startingIndex ; i <= lastIndex; i ++ ) {
-        console.log
-        
-            
-    }
-
-    //let lastIndex = letters.search(str.charAt(son));
-  
-     
-  
-    return missingLetter;
-  }
-  
-  fearNotLetter("abcdefhijkl");
+    for (let i = 0; i < str.length; i++) {
+        if(str.charCodeAt(i) < 97 || str.charCodeAt(i+1) > 121 ) {
+            return undefined;
+          }
+        if(str.charCodeAt(i) + 1 !== str.charCodeAt(i+1)) {
+    
+           
+            let fazla = str[i+1];
+            let eksik = String.fromCharCode(str.charCodeAt(i) + 1 );
+            return eksik;
+        }
+        }  
+           
+    } 
+    console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
