@@ -37,4 +37,4 @@ function convertHTML(str) {
   }
   
   console.log(convertHTML("Hamburgers < Pizza < Tacos"));
-  console.log(convertHTML('Stuff in "quotation marks"'))
+  console.log(convertHTML('Stuff in "quotation marks"'));
