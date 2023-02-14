@@ -2,20 +2,21 @@
 
 function whatIsInAName(collection, source) {
     let finalArr = [];
-    let key = Object.keys(source)[0];
-    let val= source[key];
-    
+   
    
     for (let i = 0; i  < collection.length; i += 1) {   
          
-        if (Boolean(collection[i].hasOwnProperty(key))) {
-            
-            if (Boolean(collection[i][key] === val)) {
-                
-                finalArr.push(collection[i]);
-
-            }   
+        let isMatch = true;
+        for (let key in source) {
+            if(!collection[i].hasOwnProperty(key) || collection[i][key] !== source[key]) {
+              isMatch = false;
+              break;  
+            }
         }
+
+    if (isMatch) {
+        finalArr.push(collection[i]);
+    }
     }
     return finalArr;
         
