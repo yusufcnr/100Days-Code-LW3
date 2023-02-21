@@ -1,0 +1,29 @@
+//jshint esversion:6
+
+function pairElement(str) {
+    let resArr = [];
+    let strArr = str.split("");
+    console.log(strArr);
+    
+    for (let i= 0; i < strArr.length; i++) {
+      console.log(i);
+      //console.log(strArr[elem]);
+      if(strArr[i] === "A") {
+        resArr.push(["A", "T"]); }
+
+      if(strArr[i] === "T") {
+        resArr.push(["T", "A"]);}
+
+      if(strArr[i] === "C") {
+        resArr.push(["C", "G"]);}
+    
+      if(strArr[i] === "G") {
+      resArr.push(["G", "C"]);}
+      
+     
+      }
+      return resArr; 
+              
+    }
+    
+    console.log(pairElement("ATTACG"));
