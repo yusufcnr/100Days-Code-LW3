@@ -1,5 +1,7 @@
 //jshint esversion:6
 
+const json = require("body-parser/lib/types/json");
+
 function splitAtX(string) {
 
     for (let i = 0; i < string.length; i++) {
@@ -210,3 +212,58 @@ console.log(toNumber("2366"));
 
 
 module.exports = toNumber;
+
+
+function toJSON(obj) {
+    return JSON.stringify(obj);
+    
+}
+
+module.exports = toJSON;
+
+console.log(toJSON('{"name":"Jim"}'));
+
+
+
+function eitherNotBoth(num) {
+
+    if (num % 15 === 0 ) {
+       return false;
+    } 
+    else if (num % 3 === 0) {
+        return true;
+    } else if (num % 5 === 0) {
+        return true;
+    }
+
+}
+
+module.exports = eitherNotBoth;
+
+console.log(eitherNotBoth(10));
+
+
+
+function fizzBuzz(numbers) {
+
+    let resArr = [];
+
+for (let i = 0; i < numbers.length; i ++) {
+
+    if (numbers[i] % 15 === 0) {
+        resArr.push("fizzbuz");
+    } else if (numbers[i] % 3 === 0) {
+        resArr.push("fizz");
+    } else if (numbers[i] % 5 === 0) {
+        resArr.push("buzz");
+    }
+    
+}return resArr.join("");
+
+}
+
+console.log(fizzBuzz([1, 3, 5, 9, 11, 12,15, 20]));
+
+module.exports = fizzBuzz;
+
+
