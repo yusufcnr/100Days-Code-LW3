@@ -5,27 +5,16 @@ const MONTHS = [
 ];
 
 
-
-
 function sortByMonth(events) {
-
-    return events.sort(function (month1, month2) {
-        let index1 = MONTHS.indexOf(month1);
-        let index2 = MONTHS.indexOf(month2);
-
-        return events.sort(function(m1,m2) {
-            return m2.index2 - m1.index1;
-        })
-
-    } );
-
-    
+    return events.sort(function(a,b) {
+        return MONTHS.indexOf(a.month) - MONTHS.indexOf(b.month);
+    });
     
 }
 
 module.exports = sortByMonth;
 
-const events = [{ event: 'parade', month: 'JAN' },
+const events = [{ event: 'parade', month: 'DEC' },
 { event: 'dance', month: 'MAR' },
 { event: 'farmers market', month: 'JUN' }];
 
