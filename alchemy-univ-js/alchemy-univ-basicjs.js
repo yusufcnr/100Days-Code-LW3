@@ -266,4 +266,20 @@ console.log(fizzBuzz([1, 3, 5, 9, 11, 12,15, 20]));
 
 module.exports = fizzBuzz;
 
+/****************************************/
+
+function sortUp(array) {
+   return  array.sort(function compare (a,b){
+        return b-a;
+        
+    });
+
+
+}
+
+module.exports = sortUp;
+
+let arrSort = [3,2,4,1];
+console.log(sortUp(arrSort));
+
 
