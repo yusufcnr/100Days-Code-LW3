@@ -52,7 +52,6 @@ function firstThree(array) {
 
     });
 
-    
 }
 
 module.exports = firstThree;
