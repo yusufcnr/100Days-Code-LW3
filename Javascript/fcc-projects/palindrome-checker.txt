@@ -1,0 +1,34 @@
+//jshint esversion:6
+
+function palindrome(str) {
+
+  let regex = /[a-zA-Z0-9]/g;
+  let letterStrUppercase = str.toUpperCase();
+  let letterArr = letterStrUppercase.match(regex); 
+  // console.log(letterArr);
+  let resArr = [];
+  let upperCaseLetterStr = letterArr.join("");
+  //console.log(upperCaseLetterStr);
+//  console.log(regex.test(strArr));
+
+  // console.log(strArr);
+  for (let i = 0; i < upperCaseLetterStr.length; i += 1) {
+      if (upperCaseLetterStr[i] !== upperCaseLetterStr[upperCaseLetterStr.length-i-1]) {
+        // console.log(upperCaseLetterStr[i]);
+        // console.log(i);
+        // console.log(upperCaseLetterStr.length-i);
+        // resArr.push(upperCaseLetterStr[i]);
+        return false;
+    
+      } 
+  }
+    // console.log(resArr);
+  
+
+      return true;
+    }
+    
+    console.log(palindrome("fusAaa man, a plan, a canal. 23 sd0 %% Pyusuf"));
+    console.log(palindrome("1 eye for of 1 eye."));
+
+

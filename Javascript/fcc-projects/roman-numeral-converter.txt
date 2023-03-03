@@ -1,0 +1,30 @@
+//jshint esversion:6
+
+function convertToRoman(num) {
+
+    let arrRes = [];
+    let numArr = [1,4,5,9,10,40,50,90,100,400,500,900,1000];
+    let symArr = ["I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"];
+ 
+
+    for (let i = 12; i >= 0; i-- ){
+
+        let numOfSym = Math.floor(num/numArr[i]);
+        // console.log(numOfSym);
+        let sym = symArr[i];
+        //console.log("sym:" + symArr[i] + " numOfSym: " + numOfSym);
+        arrRes.push(symArr[i].repeat(numOfSym));
+
+        num = num % numArr[i];
+        
+    
+    }
+
+    return arrRes.join("");
+    
+    }
+    
+    console.log(convertToRoman(2));
+    console.log(convertToRoman(3336));
+    console.log(convertToRoman(3336));
+    console.log(convertToRoman(3336));

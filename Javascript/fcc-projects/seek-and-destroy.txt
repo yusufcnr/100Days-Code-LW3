@@ -1,0 +1,33 @@
+function destroyer(arr) {
+  //console.log(arguments[0][3])
+  
+  let resArr = [];
+  for (let i = 1; i < arguments.length; i++) {
+    if (arguments[0].includes(arguments[i]) === true)
+    {
+      for (let j = 0; j < arguments[0].length; j++) {
+        if (arguments[0][j] === arguments[i]) {
+          delete arguments[0][j];
+          
+          //find valuse
+          //remove it
+
+
+        }
+      }
+      //console.log(arr.indexOf(arguments[i]));
+      //console.log(arguments[0].includes(arguments[i]));
+      
+    }
+    
+
+  }
+
+
+  return arr.filter((item) => item != ' ')
+}
+
+console.log(destroyer([212, 2, 3, 1, 2, 43], 21, 2));
+console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5));
+console.log(destroyer([2, 3, 2, 3], 2, 3));
+console.log(destroyer(["tree", "hamburger", 53], "tree", 53));

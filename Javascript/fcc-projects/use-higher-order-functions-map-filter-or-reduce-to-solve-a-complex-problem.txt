@@ -1,0 +1,13 @@
+const squareList = arr => {
+  // Only change code below this line
+let realNumArray = arr
+  .filter(elem => (Number.isInteger(elem)=== true))
+  .filter(elem => elem >=0)
+  .map(elem => Math.pow(elem,2));
+
+  return realNumArray;
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
