@@ -97,3 +97,27 @@ function yesileBoya(element) {
 const grandparent = document.querySelector("grand-parent");
 const parents = Array.from(grandparent.children);
 parents.forEach(console.log);
+const parent1 = parents[0];
+const children = Array.from(parent1.children);
+changeColor(children[0]);
+
+const childOne = grandparent.querySelector(".child");
+changeColor(childOne);
+
+const childs = grandparent.querySelectorAll(".child");
+const parenta = children.parentElement;
+
+const grandparents = parents.parentElement;
+
+changeColor(parenta);
+changeColor(grandparents);
+
+const grandgrandparent = childOne.closest(".grandgrandparent");
+
+const child2 = childOne.nextElementSibling;
+changeColor(child2);
+
+const child0 = childOne.previousElementSibling;
+
+
+
