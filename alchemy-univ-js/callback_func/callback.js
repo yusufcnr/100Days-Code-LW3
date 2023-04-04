@@ -39,3 +39,35 @@ class Order {
 }
 
 module.exports = Order;
+
+const myPromise = new Promise(function (resolve, reject) {
+  if (resolve) {
+    console.log("no problem so far");
+  } else if (reject) {
+    console.log(reject);
+  }
+});
+
+function timer() {
+  return new Promise(function (res, rej) {
+    setTimeout(() => {
+      res();
+    }, 1000);
+  });
+}
+
+module.exports = timer;
+
+
+const { getResults } = require("./lab");
+const { sendResults } = require("./messaging");
+const { logResponse, logError } = require("./logs");
+
+async function handleResults(patientId) {
+
+  const result = await getResults(patient);
+  const response = await sendResults(patientId, response);
+  await logResponse(response);
+}
+
+module.exports = handleResults;

@@ -1,0 +1,30 @@
+body {
+    
+
+    padding: 40px;
+}
+
+span{
+    background-color:powderblue;
+    
+
+}
+.box{
+    display: inline-block;
+    margin: 1rem;
+    min-width: 6.em;
+    line-height: 6.5em;
+    text-align: center;
+    transition: 1s ease-in-out;
+    border: 0.25em dotted;
+   
+}
+
+
+#box-x:hover {
+    rotate:90deg;
+}
+
+#box-y:hover{
+    rotate: -90deg;
+}

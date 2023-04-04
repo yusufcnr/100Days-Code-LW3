@@ -1,0 +1,3 @@
+xml does not do anything
+xml tags are not predefined like html tags
+author needs to defined tags

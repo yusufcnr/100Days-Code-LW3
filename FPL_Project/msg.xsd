@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="IOPCLIENT">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="LOGIN" type="LOGIN" />
+                <xs:element name="ALLR" type="ALLR" />
+                <xs:element name="FPLDMAN" type="FPLDMAN" />
+                <xs:element name="FPLAODB" type="FPLAODB" />
+                <xs:element name="KEEPALIVE" type="KEEPALIVE" />
+                <xs:element name="CLIENTREJECT" type="CLIENTREJECT" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="IOPMSG">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="DIAG" type="DIAG" />
+                <xs:element name="ALLS" type="ALLS" />
+                <xs:element name="ALLE" type="ALLE" />
+                <xs:element name="SBY" type="SBY" />
+                <xs:element name="SBYEND" type="SBYEND" />
+                <xs:element name="FPLCREC" type="FPLCREC" />
+                <xs:element name="FPLAREC" type="FPLAREC" />
+                <xs:element name="FPLDREC" type="FPLDREC" />
+                <xs:element name="RWYINUSE" type="RWYINUSE" />
+                <xs:element name="KEEPALIVE" type="KEEPALIVE" />
+                <xs:element name="STATUSMESSAGE" type="STATUSMESSAGE" />
+                <xs:element name="IOPREJECT" type="IOPREJECT" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <!-- *** CLIENT MESSAGES *** -->
+    <xs:complexType name="LOGIN">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <xs:attribute name="USERNAME" type="USERNAME" use="required" />
+        <xs:attribute name="PASSWORD" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[a-zA-Z_0-9]{1,16}" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="ALLR">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <!--Timestamp -->
+    </xs:complexType>
+    <xs:complexType name="FPLDMAN">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <xs:attribute name="IDT" type="IDT" use="required" />
+        <xs:attribute name="TOBT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="TSAT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="TTOT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="TTT"  type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="RWYP" type="RWYNAME" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="FPLAODB">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <xs:attribute name="IDT" type="IDT" use="required" />
+        <xs:attribute name="IAD" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="ALFA">
+                    <xs:maxLength value="4" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="FLN" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:unsignedInt" />
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DEP" type="AIRP" use="optional" />
+        <xs:attribute name="ARR" type="AIRP" use="optional" />
+        <xs:attribute name="POB" type="POB" use="optional" />
+        <xs:attribute name="PKB" type="PKB" use="optional" />
+        <xs:attribute name="AOBT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="SSR" type="SSR" use="optional" />
+        <xs:attribute name="CFL" type="LEVELASCI" use="optional" />
+        <xs:attribute name="SID" type="SID" use="optional" />
+        <xs:attribute name="STAR" type="SID" use="optional" />
+        <xs:attribute name="AOC" type="xs:boolean" use="optional" />
+        <xs:attribute name="DCL"  type="TIME_LONG" use="optional" />
+        <xs:attribute name="RSC"  type="TIME_MINUTES" use="optional" />
+    <xs:attribute name="MAF"  type="MAF" use="optional" />
+    <xs:attribute name="MAL"  type="MAL" use="optional" />
+    <xs:attribute name="TOCSEC" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="KEEPALIVE">
+        <xs:attribute name="TIME" type="TIME_LONG" use="required" />
+        <!--Timestamp -->
+    </xs:complexType>
+    <xs:complexType name="CLIENTREJECT">
+        <xs:attribute name="TIME" type="TIME_LONG" use="required" />
+        <xs:attribute name="MSG_ID" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="10" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="RSN" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="12" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DIAGN" use="required">
+            <xs:simpleType>
+        <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="160" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    <xs:attribute name="REJECTMES" type="ALFANUM" use="optional" />
+        <!--Timestamp -->
+        <!--Refused message -->
+        <!--Rejection reason -->
+        <!--Detail of the problem -->
+        <!--the full rejected message is inserted here -->
+    </xs:complexType>
+    <!-- *** AAI SERVER MESSAGES *** -->
+    <xs:complexType name="DIAG">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <xs:attribute name="FREE_NOTE" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="40" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="STATUS" type="xs:boolean" use="required" />
+        <xs:attribute name="USERNAME" type="USERNAME" use="required" />
+    </xs:complexType>
+    <xs:complexType name="ALLS">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="ALLE">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="SBY">
+        <xs:annotation />
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <!--Timestamp -->
+    </xs:complexType>
+    <xs:complexType name="SBYEND">
+        <xs:attribute name="TIME" type="TIME_LONG" use="optional" />
+        <!--Timestamp -->
+    </xs:complexType>
+    <xs:complexType name="FPLAREC">
+        <xs:sequence>
+            <xs:element name="TIME" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="FPLA" type="FPLA" />
+            <!--Timestamp -->
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FPLDREC">
+        <xs:sequence>
+            <xs:element name="TIME" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="FPLD" type="FPLD" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FPLCREC">
+        <xs:sequence>
+            <xs:element name="TIME" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="FPLC" type="FPLINFO" />
+            <!--Timestamp -->
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RWYINUSE">
+        <xs:sequence>
+            <xs:element name="TIME" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="AIRPORT" type="AIRPORT" />
+            <!--Timestamp -->
+            <!--This message contains the information about the runways of a certain
+                airport -->
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="STATUSMESSAGE">
+        <xs:attribute name="TIME" type="TIME_LONG" use="required" />
+        <xs:attribute name="SYSTEM" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:length value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="COND" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:length value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="MODE" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:length value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Timestamp -->
+        <!--Status System: real world or simulated world -->
+        <!--Status Condition: buts or emergency -->
+        <!--Status Mode: wake Up, idle or operative -->
+    </xs:complexType>
+    <xs:complexType name="IOPREJECT">
+        <xs:attribute name="TIME" type="TIME_LONG" use="required" />
+        <xs:attribute name="MSG_ID" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="10" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="RSN" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="12" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DIAGN" use="optional">
+            <xs:simpleType>
+        <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="30" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    <xs:attribute name="REJECTMES" type="ALFANUM" use="optional" />
+        <!--Timestamp -->
+        <!--Refused message -->
+        <!--Rejection reason -->
+        <!--Detail of the problem -->
+        <!--the full rejected message is inserted here -->
+    </xs:complexType>
+    <!-- *** TYPE ELEMENT of MESSAGES *** -->
+    <xs:complexType name="FPLINFO">
+        <xs:attribute name="IDT" type="IDT" use="required" />
+        <xs:attribute name="FFS" type="FFS" use="optional" />
+        <xs:attribute name="EOBT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="DATE" type="DATE" use="optional" />
+        <xs:attribute name="AOBT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="DEP" type="AIRP" use="optional" />
+        <xs:attribute name="ARR" type="AIRP" use="optional" />
+        <xs:attribute name="DRW" type="RWYNAME" use="optional" />
+        <xs:attribute name="ARW" type="RWYNAME" use="optional" />
+        <xs:attribute name="ETD" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="ATD" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="ETL" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="ATL" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="EST" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="RFL" type="LEVELASCI" use="optional" />
+        <xs:attribute name="CFL" type="LEVELASCI" use="optional" />
+        <xs:attribute name="TAM" type="xs:decimal" use="optional" />
+        <xs:attribute name="FR" type="FR" use="optional" />
+        <xs:attribute name="PKB" type="PKB" use="optional" />
+        <xs:attribute name="TYPE" type="TYPE" use="optional" />
+        <xs:attribute name="TCT" type="TCT" use="optional" />
+        <xs:attribute name="REG" type="REG" use="optional" />
+        <xs:attribute name="SSR" type="SSR" use="optional" />
+        <xs:attribute name="LOR" type="LOR" use="optional" />
+        <xs:attribute name="TSAT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="TOBT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="TTOT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="RWYP" type="RWYNAME" use="optional" />
+        <xs:attribute name="POB" type="POB" use="optional" />
+        <xs:attribute name="HOF" type="HOF" use="optional" />
+        <xs:attribute name="HOT" type="TIME_HHMM" use="optional" />
+        <xs:attribute name="MAF" type="MAF" use="optional" />
+        <xs:attribute name="MAL" type="MAL" use="optional" />
+        <xs:attribute name="ETA" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="DCL" type="TIME_HHMM" use="optional" />
+        <xs:attribute name="RSC" type="TIME_HHMM" use="optional" />
+        <xs:attribute name="SID" type="SID" use="optional" />
+        <xs:attribute name="STAR" type="SID" use="optional" />
+        <xs:attribute name="STS" type="xs:string" use="optional" />
+        <xs:attribute name="STET" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="STRT" type="TIME_MINUTES" use="optional" />
+        <xs:attribute name="CTOT" type="TIME_HHMM" use="optional" />
+        <xs:attribute name="LINK" type="BOOLEAN" use="optional" />
+        <xs:attribute name="RNAV" type="NAV" use="optional" />
+        <xs:attribute name="DSN" type="xs:string" use="optional" />
+        <xs:attribute name="LSN" type="xs:string" use="optional" />
+        <xs:attribute name="INCOP"  type="xs:string" use="optional" />
+        <xs:attribute name="OUTCOP" type="xs:string" use="optional" />
+        <xs:attribute name="OWN" use="optional" >
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="NOW" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="FLC" type="xs:decimal" use="optional" />
+        <xs:attribute name="STA" type="xs:decimal" use="optional" />
+        <!-- Unione WORD121..160 ROB(80) : Rotta ridotta alla propria FIR. WORD1262..1341
+            EROB(160) : Extended ROB : Campo Rotta Esteso -->
+        <xs:attribute name="ROUTE" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0" />
+                    <xs:maxLength value="240" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="LRP" type="xs:unsignedByte" use="optional" />
+        <!-- WORD117..118 PTAS Planned True Air Speed. Sono 4 caratteri Ascii che
+            indicano la velocita' corrente o pianificata a seconda che il volo sia dinamico
+            o no. -->
+        <xs:attribute name="PTAS" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0" />
+                    <xs:maxLength value="4" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- WORD1417 PFL Proposed Flight Level. Campo contenente il flight level
+            proposto dall'ordine RTI o TIP. -->
+        <xs:attribute name="PFL" type="xs:unsignedShort" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="FPLA">
+        <xs:sequence>
+            <xs:element name="FPLADATA" type="FPLINFO" />
+            <xs:element minOccurs="0" name="TRAJ4D" type="TRAJ4D" />
+      <xs:element minOccurs="0" maxOccurs="1" name="COORDSECT" type="COORD_SECTION" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TRAJ4D">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="POINT">
+                <xs:complexType>
+                    <xs:attribute name="NUM" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="NUM">
+                                <xs:maxLength value="2" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="NAME" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="LEV" type="LEVELASCI" use="required" />
+                    <xs:attribute name="ETO" type="TIME_MINUTES" use="required" />
+                    <xs:attribute name="LAT" type="LAT" use="required" />
+                    <xs:attribute name="LONG" type="LONG" use="required" />
+                    <!--Index of the 4D trajectory point -->
+                    <!--Name of the point -->
+                    <!--Level requested for the 4D trajectory point(flight level) -->
+                    <!--Estimated time -->
+                    <!--Latitude of the 4D Trajectory point -->
+                    <!--Longitude of the 4D Trajectory point -->
+                    <!-- TYPE : E' un carattere Ascii che indica il tipo del punto. Assume i seguenti valori:
+          'F' = Fix Point riportabile non di confine tra due settori,
+          'R' = Relevant Point non riportabile (Top of Climbing (TOC) e Top of Descending (TOD)),
+          'C' = Clock Point non riportabile, indica la posizione corrente ,
+          'H' = Holding Point non riportabile,
+          'X' = Crossing Point riportabile tra due settori,
+          'S' = Crossing Point non riportabile tra due settori AOR o tra uno di AOR e uno di AOI,
+          'W' = System Point non riportabile (punti della SID e della STAR),
+          'G' = Geographic Point riportabile (estrapolato da LAT/LONG di un punto geografico),
+          'Y' = Crossing Point non riportabile tra due settori di AOI,
+          'I' = Fix Point riportabile in AOI,
+          'J' = Geographic Point riportabile in AOI,
+          'K' = Crossing Point riportabile in AOI,
+          'D' = Dummy Point non riportabile, e' presente quando esistono due traiettorie parallele
+          'L' = Leg Point non riportabile, indica l'inizio o la fine della tratta XRQ
+          'U' = Punto di intersezione traiettoria e SUA. Se pero' il punto e' un punto noto manterra' il suo tipo. -->
+                    <xs:attribute name="TYPE">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:minLength value="1" />
+                                <xs:maxLength value="1" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <!-- PFR : Point Flight Rule. Individua la regola corrente sul punto.
+                        E' utilizzato per i voli 'Y' e 'Z'. Vale 1 = 'IFR', 0 = 'VFR' -->
+                    <xs:attribute name="PFR">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value="\d*|\s{0}" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <!-- GOF : GAT/OAT FLAG. Indica se il trattamento del punto e' di tipo
+                        GAT o OAT. Vale 1 = 'GAT', 0 = 'OAT' -->
+                    <xs:attribute name="GOF">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value="\d*|\s{0}" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+                <!--Point of the 4D trajectory -->
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FPLD">
+        <xs:sequence>
+            <xs:element name="FPLDDATA" type="FPLINFO" />
+            <xs:element minOccurs="0" name="TRAJ4D" type="TRAJ4D" />
+      <xs:element minOccurs="0" maxOccurs="1" name="COORDSECT" type="COORD_SECTION" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AIRPORT">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="RWY" type="RWY" />
+            <!--Insert for a validity check -->
+        </xs:sequence>
+        <xs:attribute name="AIRP" type="AIRP" use="optional" />
+        <xs:attribute name="CAT" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="4" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DEP_RATE" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="3" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="ARR_RATE" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="3" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="MIX_RATE" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="3" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="RWYNUM" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="3" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Airport Name -->
+        <!--Airport category -->
+        <!--Number of departure for hour -->
+        <!--Number of arrival for hour -->
+        <!--Number of arrival and departure for hour -->
+        <!--Number of configurable runway for the airport -->
+    </xs:complexType>
+    <!--This message contains the information about a specific runway -->
+    <xs:complexType name="RWY">
+        <xs:attribute name="RWYITEM" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="4" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="STA" use="required">
+            <xs:simpleType>
+                <xs:restriction base="ALFANUM">
+                    <xs:maxLength value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DD" type="xs:boolean" use="required" />
+        <xs:attribute name="AD" type="xs:boolean" use="required" />
+        <!--Runway name -->
+        <!--Runway state -->
+        <!--Departure runway default -->
+        <!--Arrival runway default -->
+    </xs:complexType>
+    <!-- @INTERNAL TYPE@ -->
+    <xs:simpleType name="TIME_LONG">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|([0-9][0-9][0-9][0-9])(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(([0-1]?[0-9])|([2][0-3]))([0-5][0-9])([0-5][0-9])" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TIME_MINUTES">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|([0-9][0-9][0-9][0-9])(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(([0-1]?[0-9])|([2][0-3]))([0-5][0-9])" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TIME_HHMM">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|(([0-1]?[0-9])|([2][0-3]))([0-5][0-9])" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DATE">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|([0-9][0-9])(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="IDT">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="8" />
+            <!-- <xs:pattern value="\s{0}|[a-zA-Z][a-zA-Z_0-9]*" /> -->
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SID">
+        <xs:restriction base="xs:string">
+            <!-- <xs:pattern value="\s{0}|[a-zA-Z_0-9]{8}" /> -->
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FFS">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z]{2}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AIRP">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z]{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LEVELASCI">
+        <xs:restriction base="xs:unsignedShort">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="650" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="RWYNAME">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FK">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z_0-9]{2}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PKB">
+        <xs:restriction base="xs:string">
+            <!-- <xs:minLength value="3" /> -->
+            <xs:maxLength value="8" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TYPE">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="8" />
+            <xs:pattern value="\s{0}|[a-zA-Z_0-9]{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TCT">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|[a-zA-Z]{1}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="REG">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="8" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SSR">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="POB">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="5" />
+            <xs:pattern value="[0-9]*" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LOR">
+        <xs:restriction base="xs:string">
+      <xs:pattern value="\s{0}|[a-zA-Z_0-9]{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HOF">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|[a-zA-Z_0-9]{5}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="MAF">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="5" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="MAL">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BOOLEAN">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[TF]{1}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NAV">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[B P]{1}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ALFA">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z]{0,}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ALFANUM">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z_0-9]{0,}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NUM">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\s{0}|[0-9]*" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FR">
+        <xs:restriction base="ALFANUM">
+            <xs:length value="2" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LAT">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([NS][0-9][0-9][0-9][0-9][.][0-9])" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LONG">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([EW][0-9][0-9][0-9][0-9][0-9][.][0-9])" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="USERNAME">
+        <xs:restriction base="ALFANUM">
+      <xs:maxLength value="10" />
+        </xs:restriction>
+    </xs:simpleType>
+  <xs:complexType name="COORD_SECTION">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element minOccurs="0" maxOccurs="10" name="COORD_ITEM" type="COORD_TYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COORD_TYPE">
+    <!-- l'indice alla traiettoria che individua il punto di XFL/PEL : Il valore
+            dummy e' 0FFh -->
+    <xs:attribute name="XFL_PEL_IDX" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte" />
+      </xs:simpleType>
+    </xs:attribute>
+    <!-- stato del coordinamento tra due settori interni alla Fir : 0=Null,
+            1=Proposal, 2=Accepted, ... -->
+    <xs:attribute name="XFL_PEL_STATUS">
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="0" />
+          <xs:maxInclusive value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <!-- indice settore uscente nel coordinamento tra settori della stessa
+            FIR -->
+    <!-- AAI converte l'indice nel trilleterale di riferimento -->
+    <xs:attribute name="EXS">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <!-- indice settore entrante nel coordinamento tra settori della stessa
+            FIR -->
+    <!-- AAI converte l'indice nel trilleterale di riferimento -->
+    <xs:attribute name="ENS">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <!-- livello coordinato tra i due settori. E' espresso in binario : valore
+            dummy e' 0FFFFH -->
+    <xs:attribute name="XFL_PEL_LEVEL" type="xs:unsignedShort" />
+  </xs:complexType>
+</xs:schema>
