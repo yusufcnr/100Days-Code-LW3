@@ -24,11 +24,10 @@ const notes = [
       "What's the difference between hardware and software? You can hit your hardware with a hammer, but you can only curse at your software.",
   },
   {
-    key: 4,
-    title: "yusuf vs. Software",
+    key: 5,
+    title: "Learing React",
     content:
-      "What's the difference between hardware and software? You can hit your hardware with a hammer, but you can only curse at your software.",
-  },
+      "Currently learning React in order to be a fullstack web3 dev" },
 ];
 
 export default notes;
